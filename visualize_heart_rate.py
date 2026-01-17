@@ -98,6 +98,173 @@ def export_to_csv(df: pd.DataFrame, output_path: str) -> None:
     print(f"  Low HR records (is_low=True): {export_df['is_low'].sum()}")
 
 
+def generate_mobile_filter_html(plotly_div: str, max_date: datetime, min_date: datetime) -> str:
+    """
+    Generate full HTML with mobile-friendly filter buttons wrapping the Plotly chart.
+
+    Args:
+        plotly_div: The Plotly chart HTML (div + script)
+        max_date: The maximum date in the dataset (for calculating ranges)
+        min_date: The minimum date in the dataset (full range start)
+
+    Returns:
+        Complete HTML string with filter buttons and chart
+    """
+    # Format dates for JavaScript
+    max_date_str = max_date.strftime('%Y-%m-%d')
+    min_date_str = min_date.strftime('%Y-%m-%d')
+
+    html_template = f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Apple Health Data - Last 6 Months</title>
+    <style>
+        * {{
+            box-sizing: border-box;
+        }}
+
+        body {{
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #f5f5f5;
+        }}
+
+        .filter-container {{
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 12px 16px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }}
+
+        .filter-label {{
+            color: rgba(255,255,255,0.9);
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }}
+
+        .filter-buttons {{
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }}
+
+        .filter-btn {{
+            flex: 1;
+            max-width: 120px;
+            padding: 14px 16px;
+            border: 2px solid rgba(255,255,255,0.9);
+            border-radius: 25px;
+            background: transparent;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }}
+
+        .filter-btn:hover {{
+            background: rgba(255,255,255,0.1);
+        }}
+
+        .filter-btn:active {{
+            transform: scale(0.96);
+        }}
+
+        .filter-btn.active {{
+            background: white;
+            color: #667eea;
+            border-color: white;
+        }}
+
+        .chart-container {{
+            background: white;
+            min-height: 100vh;
+        }}
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {{
+            .filter-container {{
+                padding: 10px 12px;
+            }}
+
+            .filter-btn {{
+                padding: 12px 8px;
+                font-size: 13px;
+            }}
+        }}
+    </style>
+</head>
+<body>
+    <div class="filter-container">
+        <div class="filter-label">Date Range</div>
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-range="6m" onclick="setDateRange('6m')">6 Months</button>
+            <button class="filter-btn" data-range="3m" onclick="setDateRange('3m')">3 Months</button>
+            <button class="filter-btn" data-range="1m" onclick="setDateRange('1m')">1 Month</button>
+        </div>
+    </div>
+
+    <div class="chart-container">
+        {plotly_div}
+    </div>
+
+    <script>
+        // Date range configuration
+        const maxDate = new Date('{max_date_str}');
+        const minDate = new Date('{min_date_str}');
+
+        function setDateRange(range) {{
+            // Update button states
+            document.querySelectorAll('.filter-btn').forEach(btn => {{
+                btn.classList.remove('active');
+            }});
+            document.querySelector(`[data-range="${{range}}"]`).classList.add('active');
+
+            // Calculate date range
+            let startDate = new Date(minDate);
+            const endDate = new Date(maxDate);
+
+            // Add a small buffer to end date to ensure last data point is visible
+            endDate.setDate(endDate.getDate() + 1);
+
+            if (range === '3m') {{
+                startDate = new Date(maxDate);
+                startDate.setMonth(startDate.getMonth() - 3);
+            }} else if (range === '1m') {{
+                startDate = new Date(maxDate);
+                startDate.setMonth(startDate.getMonth() - 1);
+            }}
+            // For '6m', startDate remains as minDate (full range)
+
+            // Find the Plotly chart div
+            const plotlyDiv = document.querySelector('.js-plotly-plot');
+
+            if (plotlyDiv) {{
+                // Update x-axis range for all subplots
+                // Since shared_xaxes=True, we need to update xaxis7 (the main one at the bottom)
+                Plotly.relayout(plotlyDiv, {{
+                    'xaxis7.range': [startDate.toISOString(), endDate.toISOString()],
+                    'xaxis7.autorange': false
+                }});
+            }}
+        }}
+    </script>
+</body>
+</html>'''
+
+    return html_template
+
+
 def create_visualization(hr_df: pd.DataFrame, low_hr_events_df: pd.DataFrame, workout_df: pd.DataFrame,
                          sleep_comparison_df: pd.DataFrame, output_path: str) -> None:
     """
@@ -371,8 +538,35 @@ def create_visualization(hr_df: pd.DataFrame, low_hr_events_df: pd.DataFrame, wo
         row=7, col=1
     )
 
+    # Calculate date range from data for mobile filter buttons
+    all_dates = [hr_df["timestamp"].min(), hr_df["timestamp"].max()]
+    if not workout_df.empty:
+        all_dates.extend([workout_df["timestamp"].min(), workout_df["timestamp"].max()])
+    if not low_hr_events_df.empty:
+        all_dates.extend([low_hr_events_df["start_time"].min(), low_hr_events_df["start_time"].max()])
+    if sleep_comparison_df is not None and not sleep_comparison_df.empty:
+        all_dates.extend([sleep_comparison_df.index.min(), sleep_comparison_df.index.max()])
+
+    min_date = min(all_dates)
+    max_date = max(all_dates)
+
+    # Convert to datetime if needed (handle pandas Timestamp)
+    if hasattr(min_date, 'to_pydatetime'):
+        min_date = min_date.to_pydatetime()
+    if hasattr(max_date, 'to_pydatetime'):
+        max_date = max_date.to_pydatetime()
+
+    print(f"Date range: {min_date.date()} to {max_date.date()}")
+
+    # Generate Plotly chart as div (not full HTML)
+    plotly_div = fig.to_html(full_html=False, include_plotlyjs=True)
+
+    # Wrap with mobile-friendly filter buttons
+    full_html = generate_mobile_filter_html(plotly_div, max_date, min_date)
+
     # Save to HTML
-    fig.write_html(output_path, include_plotlyjs=True, full_html=True)
+    with open(output_path, 'w', encoding='utf-8') as f:
+        f.write(full_html)
     print(f"\nVisualization saved to: {output_path}")
 
 
