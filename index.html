@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive visualizations for Apple Health data including heart rate trends, workout tracking, sleep analysis, and low heart rate event monitoring.">
+    <title>Apple Health Visualizations - Heart Rate, Sleep & Workout Dashboards</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: #8892b0;
+            font-size: 1.1rem;
+        }
+
+        .cards {
+            display: grid;
+            gap: 24px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+        }
+
+        .card-icon.heart {
+            background: rgba(255, 107, 107, 0.2);
+        }
+
+        .card-icon.sleep {
+            background: rgba(78, 205, 196, 0.2);
+        }
+
+        .card-icon.low-hr {
+            background: rgba(255, 190, 118, 0.2);
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .card-description {
+            color: #8892b0;
+            line-height: 1.6;
+        }
+
+        .card-features {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #a8b2d1;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #8892b0;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #4ecdc4;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Apple Health Visualizations</h1>
+            <p class="subtitle">Interactive dashboards for heart rate, sleep, and workout data</p>
+        </header>
+
+        <div class="cards">
+            <a href="heart_rate_visualization.html" class="card" aria-label="View Heart Rate Dashboard">
+                <div class="card-header">
+                    <div class="card-icon heart" aria-hidden="true">&#10084;</div>
+                    <h2 class="card-title">Heart Rate Dashboard</h2>
+                </div>
+                <p class="card-description">
+                    Comprehensive 7-panel dashboard showing heart rate trends, workout duration by activity type,
+                    low heart rate events, and sleep comparisons between Apple Watch and Eight Sleep.
+                </p>
+                <div class="card-features">
+                    <span class="tag">Heart Rate Scatter</span>
+                    <span class="tag">Workout Bars</span>
+                    <span class="tag">Sleep Metrics</span>
+                    <span class="tag">Interactive Timeline</span>
+                </div>
+            </a>
+
+            <a href="sleep_comparison.html" class="card" aria-label="View Sleep Source Comparison">
+                <div class="card-header">
+                    <div class="card-icon sleep" aria-hidden="true">&#9790;</div>
+                    <h2 class="card-title">Sleep Source Comparison</h2>
+                </div>
+                <p class="card-description">
+                    Side-by-side comparison of sleep data from Apple Watch and Eight Sleep.
+                    Visualizes total sleep time, deep sleep, REM sleep, and light sleep with shaded difference regions.
+                </p>
+                <div class="card-features">
+                    <span class="tag">Apple Watch vs Eight Sleep</span>
+                    <span class="tag">Sleep Stages</span>
+                    <span class="tag">Nightly Trends</span>
+                </div>
+            </a>
+
+            <a href="low_hr_events_timeline.html" class="card" aria-label="View Low Heart Rate Events">
+                <div class="card-header">
+                    <div class="card-icon low-hr" aria-hidden="true">&#9888;</div>
+                    <h2 class="card-title">Low Heart Rate Events</h2>
+                </div>
+                <p class="card-description">
+                    Timeline visualization of low heart rate events (below 40 bpm for 10+ minutes).
+                    Shows time-of-day patterns to identify when these events typically occur.
+                </p>
+                <div class="card-features">
+                    <span class="tag">Event Timeline</span>
+                    <span class="tag">Duration Analysis</span>
+                    <span class="tag">Pattern Detection</span>
+                </div>
+            </a>
+        </div>
+
+        <footer>
+            <p>Built with <a href="https://plotly.com/" target="_blank" rel="noopener">Plotly</a> and Python</p>
+        </footer>
+    </div>
+</body>
+</html>
