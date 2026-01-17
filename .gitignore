@@ -1,0 +1,13 @@
+# Personal health data - DO NOT COMMIT
+apple_health_export/
+
+# Python
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# IDE/Tools
+.claude/
+.playwright-mcp/

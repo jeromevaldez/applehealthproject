@@ -1,0 +1,192 @@
+timestamp,duration_minutes,workout_type,source
+2025-07-16 06:13:15,77.32,Cycling,Strava
+2025-07-16 17:24:10,17.39,Traditional Strength Training,Strong
+2025-07-16 18:31:17,62.33,Walking,Jerome’s Apple Watch
+2025-07-17 14:39:03,22.69,Walking,Jerome’s Apple Watch
+2025-07-19 10:46:46,254.8,Cycling,Strava
+2025-07-20 20:36:08,43.43,Walking,Jerome’s Apple Watch
+2025-07-21 11:01:02,24.91,Walking,Jerome’s Apple Watch
+2025-07-21 16:16:59,100.37,Cycling,Strava
+2025-07-21 16:17:09,101.57,Cycling,Jerome’s Apple Watch
+2025-07-22 16:43:40,54.36,Traditional Strength Training,Strong
+2025-07-22 17:45:45,64.78,Walking,Jerome’s Apple Watch
+2025-07-23 17:15:20,254.67,Cycling,Strava
+2025-07-24 16:32:54,20.78,Walking,Jerome’s Apple Watch
+2025-07-24 18:10:44,47.35,Traditional Strength Training,Strong
+2025-07-24 19:06:32,64.63,Walking,Jerome’s Apple Watch
+2025-07-26 08:20:25,435.75,Cycling,Strava
+2025-07-27 13:59:05,39.45,Walking,Jerome’s Apple Watch
+2025-07-27 19:54:54,26.83,Walking,Jerome’s Apple Watch
+2025-07-28 18:05:17,60.13,Walking,Jerome’s Apple Watch
+2025-07-28 19:08:41,42.56,Traditional Strength Training,Strong
+2025-07-29 19:10:33,96.15,Cycling,Strava
+2025-07-30 12:13:20,16.16,Walking,Jerome’s Apple Watch
+2025-07-30 19:51:05,51.25,Walking,Jerome’s Apple Watch
+2025-08-01 17:39:56,31.01,Traditional Strength Training,Strong
+2025-08-01 18:58:56,56.37,Cycling,Jerome’s Apple Watch
+2025-08-01 19:07:24,48.27,Cycling,Strava
+2025-08-02 07:22:27,61.11,Cycling,Jerome’s Apple Watch
+2025-08-02 12:30:19,36.0,Walking,Jerome’s Apple Watch
+2025-08-02 13:16:56,36.39,Cycling,Jerome’s Apple Watch
+2025-08-02 14:00:22,72.3,Cycling,Jerome’s Apple Watch
+2025-08-06 20:00:16,17.57,Traditional Strength Training,Strong
+2025-08-07 16:42:24,119.62,Cycling,Strava
+2025-08-08 17:55:32,73.7,Walking,Jerome’s Apple Watch
+2025-08-09 14:30:44,14.79,Cycling,Jerome’s Apple Watch
+2025-08-09 15:00:57,11.05,Cycling,Jerome’s Apple Watch
+2025-08-09 15:37:42,39.44,Cycling,Jerome’s Apple Watch
+2025-08-09 20:43:05,52.89,Cycling,Jerome’s Apple Watch
+2025-08-10 14:14:07,136.63,Cycling,Strava
+2025-08-11 17:57:12,46.48,Traditional Strength Training,Strong
+2025-08-11 18:47:48,66.31,Walking,Jerome’s Apple Watch
+2025-08-12 16:55:22,122.6,Cycling,Strava
+2025-08-13 17:28:52,12549.98,Cycling,Strava
+2025-08-16 12:34:44,33.17,Walking,Jerome’s Apple Watch
+2025-08-16 14:08:49,93.99,Cycling,Jerome’s Apple Watch
+2025-08-16 17:52:30,47.47,Walking,Jerome’s Apple Watch
+2025-08-17 13:01:40,28.81,Walking,Jerome’s Apple Watch
+2025-08-18 10:56:57,98.49,Walking,Jerome’s Apple Watch
+2025-08-19 15:59:58,28.12,Walking,Jerome’s Apple Watch
+2025-08-20 10:11:22,18.71,Walking,Jerome’s Apple Watch
+2025-08-20 19:54:36,40.94,Walking,Jerome’s Apple Watch
+2025-08-22 10:39:20,280.1,Cycling,Strava
+2025-08-24 14:13:31,100.43,Cycling,Strava
+2025-08-25 13:13:24,24.56,Walking,Jerome’s Apple Watch
+2025-08-27 10:32:54,32.84,Walking,Jerome’s Apple Watch
+2025-08-28 17:34:15,57.31,Walking,Jerome’s Apple Watch
+2025-08-29 10:55:25,21.68,Walking,Jerome’s Apple Watch
+2025-08-29 21:22:14,29.04,Walking,Jerome’s Apple Watch
+2025-08-30 14:44:26,57.2,Cycling,Strava
+2025-08-31 08:56:59,141.93,Walking,Jerome’s Apple Watch
+2025-09-01 17:45:44,6.61,Running,Jerome’s Apple Watch
+2025-09-02 13:01:51,24.22,Walking,Jerome’s Apple Watch
+2025-09-02 16:43:05,79.65,Walking,Jerome’s Apple Watch
+2025-09-05 15:18:23,84.78,Cycling,Strava
+2025-09-05 15:20:58,83.08,Cycling,Jerome’s Apple Watch
+2025-09-06 09:13:12,280.28,Cycling,Strava
+2025-09-07 09:18:23,246.08,Cycling,Strava
+2025-09-08 09:59:28,14.87,Walking,Jerome’s Apple Watch
+2025-09-08 14:41:46,54.52,Walking,Jerome’s Apple Watch
+2025-09-09 03:41:57,17.26,Traditional Strength Training,Strong
+2025-09-09 09:33:39,27.23,Walking,Jerome’s Apple Watch
+2025-09-09 15:06:05,3.51,Cycling,Jerome’s Apple Watch
+2025-09-09 16:37:33,30.07,Walking,Jerome’s Apple Watch
+2025-09-11 03:53:40,64.36,Walking,Jerome’s Apple Watch
+2025-09-11 17:25:09,16.42,Traditional Strength Training,Strong
+2025-09-11 17:44:22,30.13,Walking,Jerome’s Apple Watch
+2025-09-14 18:02:54,18.35,Walking,Jerome’s Apple Watch
+2025-09-14 19:31:54,15.46,Walking,Jerome’s Apple Watch
+2025-09-15 12:39:16,14.02,Walking,Jerome’s Apple Watch
+2025-09-15 17:34:53,50.38,Walking,Jerome’s Apple Watch
+2025-09-16 12:05:36,23.0,Walking,Jerome’s Apple Watch
+2025-09-16 15:25:16,68.88,Walking,Jerome’s Apple Watch
+2025-09-17 11:34:32,16.88,Walking,Jerome’s Apple Watch
+2025-09-17 16:03:18,51.82,Walking,Jerome’s Apple Watch
+2025-09-17 17:33:07,17.58,Traditional Strength Training,Strong
+2025-09-23 11:10:58,14.84,Walking,Jerome’s Apple Watch
+2025-09-23 17:28:01,71.53,Walking,Jerome’s Apple Watch
+2025-09-24 11:06:22,26.48,Walking,Jerome’s Apple Watch
+2025-09-24 17:01:02,48.29,Traditional Strength Training,Strong
+2025-09-24 17:53:59,46.37,Walking,Jerome’s Apple Watch
+2025-09-26 15:35:55,105.88,Cycling,Strava
+2025-09-28 19:19:39,17.57,Traditional Strength Training,Strong
+2025-09-30 17:49:25,50.08,Traditional Strength Training,Strong
+2025-10-02 15:54:17,29.15,Walking,Jerome’s Apple Watch
+2025-10-02 19:34:29,20.4,Walking,Jerome’s Apple Watch
+2025-10-03 14:09:41,24.06,Walking,Jerome’s Apple Watch
+2025-10-04 11:06:41,244.7,Cycling,Strava
+2025-10-05 09:47:59,353.6,Cycling,Strava
+2025-10-07 17:23:47,55.08,Traditional Strength Training,Strong
+2025-10-09 12:58:52,24.68,Walking,Jerome’s Apple Watch
+2025-10-12 09:34:14,60.0,Cycling,Strava
+2025-10-15 11:47:33,24.11,Walking,Jerome’s Apple Watch
+2025-10-15 14:59:16,30.81,Walking,Jerome’s Apple Watch
+2025-10-17 12:11:40,24.11,Walking,Jerome’s Apple Watch
+2025-10-17 16:55:01,23.21,Traditional Strength Training,Strong
+2025-10-21 15:41:15,64.39,Walking,Jerome’s Apple Watch
+2025-10-22 16:35:44,60.0,Cycling,Strava
+2025-10-23 10:07:45,35.29,Walking,Jerome’s Apple Watch
+2025-10-25 07:19:17,45.0,Cycling,Strava
+2025-10-26 10:50:27,60.32,Traditional Strength Training,Strong
+2025-10-27 16:00:57,60.0,Cycling,Strava
+2025-10-29 15:44:32,60.0,Cycling,Strava
+2025-11-01 10:25:27,60.0,Cycling,Strava
+2025-11-03 12:58:16,11.69,Walking,Jerome’s Apple Watch
+2025-11-03 16:38:08,19.9,Walking,Jerome’s Apple Watch
+2025-11-03 17:06:13,55.97,Walking,Jerome’s Apple Watch
+2025-11-03 18:55:03,25.55,Walking,Jerome’s Apple Watch
+2025-11-04 14:00:13,23.2,Walking,Jerome’s Apple Watch
+2025-11-04 16:28:26,63.47,Walking,Jerome’s Apple Watch
+2025-11-04 17:42:28,60.0,Cycling,Strava
+2025-11-05 17:12:01,45.76,Traditional Strength Training,Strong
+2025-11-07 16:06:44,60.0,Cycling,Strava
+2025-11-09 12:54:56,60.2,Walking,Jerome’s Apple Watch
+2025-11-09 14:55:45,46.23,Traditional Strength Training,Strong
+2025-11-09 15:58:10,60.0,Cycling,Strava
+2025-11-12 17:49:03,60.0,Cycling,Strava
+2025-11-13 17:21:57,19.15,Traditional Strength Training,Strong
+2025-11-13 17:45:27,23.81,Walking,Jerome’s Apple Watch
+2025-11-14 21:04:15,24.38,Walking,Jerome’s Apple Watch
+2025-11-15 15:13:57,60.0,Cycling,Strava
+2025-11-16 15:35:14,60.0,Cycling,Strava
+2025-11-17 17:20:52,14.92,Traditional Strength Training,Strong
+2025-11-18 16:50:26,60.0,Cycling,Strava
+2025-11-18 18:19:09,25.9,Walking,Jerome’s Apple Watch
+2025-11-18 21:04:49,35.71,Walking,Jerome’s Apple Watch
+2025-11-19 16:07:24,32.08,Walking,Jerome’s Apple Watch
+2025-11-19 20:58:59,32.93,Walking,Jerome’s Apple Watch
+2025-11-21 14:32:48,33.27,Walking,Jerome’s Apple Watch
+2025-11-22 10:55:55,31.41,Walking,Jerome’s Apple Watch
+2025-11-24 14:03:15,22.35,Walking,Jerome’s Apple Watch
+2025-11-25 17:35:16,23.2,Walking,Jerome’s Apple Watch
+2025-11-27 18:00:48,65.0,Cycling,Strava
+2025-11-28 17:42:16,14.96,Traditional Strength Training,Strong
+2025-11-29 15:14:18,75.0,Cycling,Strava
+2025-11-30 10:59:54,74.55,Walking,Jerome’s Apple Watch
+2025-11-30 17:24:56,47.43,Traditional Strength Training,Strong
+2025-12-01 18:52:10,16.54,Traditional Strength Training,Strong
+2025-12-02 17:23:44,60.0,Cycling,Strava
+2025-12-04 17:06:57,60.0,Cycling,Strava
+2025-12-05 21:32:42,31.42,Walking,Jerome’s Apple Watch
+2025-12-06 10:25:00,75.0,Cycling,Strava
+2025-12-07 17:33:51,15.49,Traditional Strength Training,Strong
+2025-12-07 18:05:19,20.17,Walking,Jerome’s Apple Watch
+2025-12-08 16:41:21,12.72,Walking,Jerome’s Apple Watch
+2025-12-08 20:40:23,60.0,Cycling,Strava
+2025-12-09 19:04:34,46.67,Traditional Strength Training,Strong
+2025-12-09 19:56:22,23.82,Walking,Jerome’s Apple Watch
+2025-12-10 17:19:51,60.0,Cycling,Strava
+2025-12-11 13:13:40,15.06,Walking,Jerome’s Apple Watch
+2025-12-12 10:57:24,17.5,Walking,Jerome’s Apple Watch
+2025-12-13 11:05:17,75.0,Cycling,Strava
+2025-12-14 13:04:38,116.31,Walking,Jerome’s Apple Watch
+2025-12-14 16:59:57,36.59,Traditional Strength Training,Strong
+2025-12-14 17:43:21,26.42,Walking,Jerome’s Apple Watch
+2025-12-15 16:32:52,60.0,Cycling,Strava
+2025-12-16 17:05:18,17.05,Traditional Strength Training,Strong
+2025-12-16 17:23:33,30.48,Walking,Jerome’s Apple Watch
+2025-12-17 16:15:19,60.0,Cycling,Strava
+2025-12-20 12:58:58,75.0,Cycling,Strava
+2025-12-21 18:15:09,21.54,Traditional Strength Training,Strong
+2025-12-22 17:43:48,30.01,Walking,Jerome’s Apple Watch
+2025-12-23 17:05:19,60.0,Cycling,Strava
+2025-12-24 14:24:44,45.0,Cycling,Strava
+2025-12-26 13:11:58,78.0,Cycling,Strava
+2025-12-27 13:59:11,40.58,Walking,Jerome’s Apple Watch
+2025-12-27 17:31:46,23.94,Walking,Jerome’s Apple Watch
+2025-12-28 11:48:10,60.0,Cycling,Strava
+2025-12-29 17:43:57,29.77,Traditional Strength Training,Strong
+2025-12-29 18:33:32,45.0,Cycling,Strava
+2025-12-31 16:28:11,77.0,Cycling,Strava
+2026-01-02 17:13:08,60.0,Cycling,Strava
+2026-01-03 15:08:14,26.15,Traditional Strength Training,Strong
+2026-01-03 15:47:19,60.0,Cycling,Strava
+2026-01-04 10:12:08,17.91,Walking,Jerome’s Apple Watch
+2026-01-04 17:12:13,75.0,Cycling,Strava
+2026-01-05 19:32:35,45.03,Walking,Jerome’s Apple Watch
+2026-01-06 18:19:10,61.0,Cycling,Strava
+2026-01-07 17:29:07,45.0,Cycling,Strava
+2026-01-09 17:36:44,75.0,Cycling,Strava
+2026-01-12 18:41:48,60.0,Cycling,Strava
+2026-01-13 16:46:46,62.37,Walking,Jerome’s Apple Watch
+2026-01-14 16:22:49,60.0,Cycling,Strava
