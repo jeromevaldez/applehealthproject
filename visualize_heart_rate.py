@@ -371,8 +371,125 @@ def create_visualization(hr_df: pd.DataFrame, low_hr_events_df: pd.DataFrame, wo
         row=7, col=1
     )
 
-    # Save to HTML
-    fig.write_html(output_path, include_plotlyjs=True, full_html=True)
+    # Calculate date range for JavaScript
+    # Find the max date across all data for dynamic range calculation
+    max_date = hr_df["timestamp"].max()
+    max_date_str = max_date.strftime("%Y-%m-%d")
+
+    # Custom CSS for mobile-friendly filter buttons
+    custom_css = """
+    <style>
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 20px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            border: 2px solid #007AFF;
+            background: white;
+            color: #007AFF;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-width: 100px;
+            min-height: 48px;
+            touch-action: manipulation;
+        }
+        .filter-btn:hover {
+            background: #007AFF;
+            color: white;
+        }
+        .filter-btn.active {
+            background: #007AFF;
+            color: white;
+        }
+        /* Mobile styles */
+        @media (max-width: 600px) {
+            .filter-container {
+                padding: 12px 16px;
+                gap: 8px;
+            }
+            .filter-btn {
+                flex: 1;
+                min-width: 90px;
+                padding: 14px 16px;
+                font-size: 15px;
+            }
+        }
+    </style>
+    """
+
+    # Custom HTML for filter buttons
+    filter_html = """
+    <div class="filter-container">
+        <button class="filter-btn" data-range="1" onclick="setDateRange(1)">1 Month</button>
+        <button class="filter-btn" data-range="3" onclick="setDateRange(3)">3 Months</button>
+        <button class="filter-btn active" data-range="6" onclick="setDateRange(6)">All</button>
+    </div>
+    """
+
+    # Custom JavaScript for date filtering
+    custom_js = f"""
+    <script>
+        const maxDate = new Date('{max_date_str}');
+
+        function setDateRange(months) {{
+            // Update active button state
+            document.querySelectorAll('.filter-btn').forEach(btn => {{
+                btn.classList.remove('active');
+            }});
+            document.querySelector(`[data-range="${{months}}"]`).classList.add('active');
+
+            // Calculate start date
+            const startDate = new Date(maxDate);
+            startDate.setMonth(startDate.getMonth() - months);
+
+            // Get the Plotly graph div
+            const graphDiv = document.querySelector('.plotly-graph-div');
+            if (!graphDiv) return;
+
+            // Update x-axis range for all subplots
+            const update = {{
+                'xaxis.range': [startDate.toISOString(), maxDate.toISOString()],
+                'xaxis2.range': [startDate.toISOString(), maxDate.toISOString()],
+                'xaxis3.range': [startDate.toISOString(), maxDate.toISOString()],
+                'xaxis4.range': [startDate.toISOString(), maxDate.toISOString()],
+                'xaxis5.range': [startDate.toISOString(), maxDate.toISOString()],
+                'xaxis6.range': [startDate.toISOString(), maxDate.toISOString()],
+                'xaxis7.range': [startDate.toISOString(), maxDate.toISOString()],
+            }};
+
+            Plotly.relayout(graphDiv, update);
+        }}
+    </script>
+    """
+
+    # Generate HTML string
+    html_content = fig.to_html(include_plotlyjs=True, full_html=True)
+
+    # Inject custom CSS into <head>
+    html_content = html_content.replace('</head>', custom_css + '</head>')
+
+    # Inject filter buttons after <body>
+    html_content = html_content.replace('<body>', '<body>' + filter_html)
+
+    # Inject JavaScript before </body>
+    html_content = html_content.replace('</body>', custom_js + '</body>')
+
+    # Write modified HTML to file
+    with open(output_path, 'w') as f:
+        f.write(html_content)
+
     print(f"\nVisualization saved to: {output_path}")
 
 
