@@ -321,24 +321,23 @@ def create_visualization(hr_df: pd.DataFrame, low_hr_events_df: pd.DataFrame, wo
             # Update y-axis label
             fig.update_yaxes(title_text=y_label, row=row, col=1)
 
-    # Layout
+    # Layout - title removed since filter bar serves as header
     fig.update_layout(
-        title=dict(
-            text="Apple Health Data - Last 6 Months",
-            x=0.5,
-            xanchor="center",
-            font=dict(size=20)
-        ),
         hovermode="closest",
         legend=dict(
-            yanchor="top",
-            y=0.99,
-            xanchor="right",
-            x=0.99,
-            bgcolor="rgba(255,255,255,0.8)"
+            orientation="h",
+            yanchor="bottom",
+            y=1.02,
+            xanchor="center",
+            x=0.5,
+            bgcolor="rgba(255,255,255,0.95)",
+            bordercolor="rgba(0,0,0,0.1)",
+            borderwidth=1,
+            font=dict(size=11)
         ),
         template="plotly_white",
         height=1800,
+        margin=dict(t=80),  # Top margin for legend only
         barmode="group"
     )
 
@@ -379,16 +378,26 @@ def create_visualization(hr_df: pd.DataFrame, low_hr_events_df: pd.DataFrame, wo
     # Custom CSS for mobile-friendly filter buttons
     custom_css = """
     <style>
-        .filter-container {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            padding: 16px 20px;
+        .header-container {
             background: #f8f9fa;
             border-bottom: 1px solid #e0e0e0;
             position: sticky;
             top: 0;
             z-index: 1000;
+            padding: 12px 20px 16px;
+        }
+        .page-title {
+            margin: 0 0 12px 0;
+            font-size: 22px;
+            font-weight: 600;
+            text-align: center;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
             flex-wrap: wrap;
         }
         .filter-btn {
@@ -415,26 +424,35 @@ def create_visualization(hr_df: pd.DataFrame, low_hr_events_df: pd.DataFrame, wo
         }
         /* Mobile styles */
         @media (max-width: 600px) {
+            .header-container {
+                padding: 10px 16px 14px;
+            }
+            .page-title {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
             .filter-container {
-                padding: 12px 16px;
                 gap: 8px;
             }
             .filter-btn {
                 flex: 1;
-                min-width: 90px;
-                padding: 14px 16px;
+                min-width: 80px;
+                padding: 14px 12px;
                 font-size: 15px;
             }
         }
     </style>
     """
 
-    # Custom HTML for filter buttons
+    # Custom HTML for filter buttons with title
     filter_html = """
-    <div class="filter-container">
-        <button class="filter-btn" data-range="1" onclick="setDateRange(1)">1 Month</button>
-        <button class="filter-btn" data-range="3" onclick="setDateRange(3)">3 Months</button>
-        <button class="filter-btn active" data-range="6" onclick="setDateRange(6)">All</button>
+    <div class="header-container">
+        <h1 class="page-title">Apple Health Data</h1>
+        <div class="filter-container">
+            <button class="filter-btn" data-range="1" onclick="setDateRange(1)">1 Month</button>
+            <button class="filter-btn" data-range="3" onclick="setDateRange(3)">3 Months</button>
+            <button class="filter-btn active" data-range="6" onclick="setDateRange(6)">All</button>
+        </div>
     </div>
     """
 
