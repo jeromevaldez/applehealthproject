@@ -184,7 +184,15 @@ def create_visualization(hr_df: pd.DataFrame, low_hr_events_df: pd.DataFrame, wo
         line_color="red",
         opacity=0.7,
         annotation_text="40 bpm threshold",
-        annotation_position="bottom right",
+        # Bottom-left with a white box: bottom-right put the words on top of the densest cluster of red dots
+        annotation_position="bottom left",
+        annotation=dict(
+            bgcolor="rgba(255,255,255,0.9)",
+            bordercolor="#d62728",
+            borderwidth=1,
+            borderpad=3,
+            font=dict(size=11, color="#d62728"),
+        ),
         row=1, col=1
     )
 
@@ -494,6 +502,10 @@ def create_visualization(hr_df: pd.DataFrame, low_hr_events_df: pd.DataFrame, wo
 
     # Generate HTML string
     html_content = fig.to_html(include_plotlyjs=True, full_html=True)
+
+    # Plotly's HTML template has no viewport meta, so phones lay the page out at 980px and shrink it.
+    viewport_meta = '<meta name="viewport" content="width=device-width, initial-scale=1" />'
+    html_content = html_content.replace('<meta charset="utf-8" />', '<meta charset="utf-8" />' + viewport_meta, 1)
 
     # Inject custom CSS into <head>
     html_content = html_content.replace('</head>', custom_css + '</head>')

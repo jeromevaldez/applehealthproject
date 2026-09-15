@@ -10,6 +10,7 @@ import pandas as pd
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import os
+from html_utils import add_viewport_meta
 
 def parse_sleep_data(xml_path: str) -> pd.DataFrame:
     """Parse all sleep analysis records from Apple Health export."""
@@ -331,6 +332,7 @@ def create_comparison_visualization(nightly_df: pd.DataFrame, output_path: str):
 
     # Save
     fig.write_html(output_path)
+    add_viewport_meta(output_path)
     print(f"\nVisualization saved to: {output_path}")
 
     # Print summary statistics
