@@ -13,7 +13,7 @@ import os
 
 import pandas as pd
 import plotly.graph_objects as go
-from html_utils import add_viewport_meta
+from html_utils import finalize_html
 
 
 def parse_low_hr_events(xml_path: str) -> pd.DataFrame:
@@ -165,8 +165,8 @@ def create_timeline_visualization(df: pd.DataFrame, output_path: str) -> None:
     )
 
     # Save to HTML
-    fig.write_html(output_path, include_plotlyjs=True, full_html=True)
-    add_viewport_meta(output_path)
+    fig.write_html(output_path, include_plotlyjs="cdn", full_html=True)
+    finalize_html(output_path, title="Low Heart Rate Events · Apple Health")
     print(f"\nTimeline visualization saved to: {output_path}")
 
 

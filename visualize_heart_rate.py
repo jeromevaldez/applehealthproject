@@ -394,6 +394,9 @@ def create_visualization(hr_df: pd.DataFrame, low_hr_events_df: pd.DataFrame, wo
             z-index: 1000;
             padding: 12px 20px 16px;
         }
+        .back-row { margin: 0 0 6px; }
+        .back-link { font: 600 14px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #007AFF; text-decoration: none; }
+        .back-link:hover { text-decoration: underline; }
         .page-title {
             margin: 0 0 12px 0;
             font-size: 22px;
@@ -455,6 +458,7 @@ def create_visualization(hr_df: pd.DataFrame, low_hr_events_df: pd.DataFrame, wo
     # Custom HTML for filter buttons with title
     filter_html = """
     <div class="header-container">
+        <div class="back-row"><a class="back-link" href="./">&larr; Apple Health</a></div>
         <h1 class="page-title">Apple Health Data</h1>
         <div class="filter-container">
             <button class="filter-btn" data-range="1" onclick="setDateRange(1)">1 Month</button>
@@ -501,11 +505,13 @@ def create_visualization(hr_df: pd.DataFrame, low_hr_events_df: pd.DataFrame, wo
     """
 
     # Generate HTML string
-    html_content = fig.to_html(include_plotlyjs=True, full_html=True)
+    # plotly.js from the CDN: one cached copy shared by all three dashboards instead of ~4.6 MB inlined per file
+    html_content = fig.to_html(include_plotlyjs="cdn", full_html=True)
 
     # Plotly's HTML template has no viewport meta, so phones lay the page out at 980px and shrink it.
     viewport_meta = '<meta name="viewport" content="width=device-width, initial-scale=1" />'
     html_content = html_content.replace('<meta charset="utf-8" />', '<meta charset="utf-8" />' + viewport_meta, 1)
+    html_content = html_content.replace('</head>', '<title>Heart Rate Dashboard · Apple Health</title></head>', 1)
 
     # Inject custom CSS into <head>
     html_content = html_content.replace('</head>', custom_css + '</head>')
