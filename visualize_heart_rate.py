@@ -19,6 +19,7 @@ from plotly.subplots import make_subplots
 from export_workouts import parse_workout_data, clean_workout_type
 from visualize_low_hr_events import parse_low_hr_events
 from compare_sleep_sources import parse_sleep_data, aggregate_by_night, add_fill_between_traces
+from html_utils import add_site_bar
 
 
 def parse_heart_rate_data(xml_path: str, source_filter: str = "Jerome") -> pd.DataFrame:
@@ -516,8 +517,9 @@ def create_visualization(hr_df: pd.DataFrame, low_hr_events_df: pd.DataFrame, wo
     # Inject custom CSS into <head>
     html_content = html_content.replace('</head>', custom_css + '</head>')
 
-    # Inject filter buttons after <body>
+    # Inject filter buttons after <body>, then the site bar above them
     html_content = html_content.replace('<body>', '<body>' + filter_html)
+    html_content = add_site_bar(html_content)
 
     # Inject JavaScript before </body>
     html_content = html_content.replace('</body>', custom_js + '</body>')

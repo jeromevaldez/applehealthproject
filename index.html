@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Interactive visualizations for Apple Health data including heart rate trends, workout tracking, sleep analysis, and low heart rate event monitoring.">
     <title>Apple Health Visualizations - Heart Rate, Sleep & Workout Dashboards</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&display=swap">
+    <link rel="stylesheet" href="https://jeromevaldez.com/site-bar.css">
     <style>
         * {
             margin: 0;
@@ -12,17 +14,25 @@
             box-sizing: border-box;
         }
 
+        /* The shared site bar, recoloured for this dark page */
+        :root {
+            --site-bar-line: rgba(255, 255, 255, 0.1);
+            --site-bar-ink: #fff;
+            --site-bar-muted: rgba(255, 255, 255, 0.7);
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             min-height: 100vh;
-            padding: 40px 20px;
             color: #fff;
         }
 
+        /* Padding lives here, not on body, so the site bar runs edge to edge */
         .container {
-            max-width: 900px;
+            max-width: 940px;
             margin: 0 auto;
+            padding: 40px 20px;
         }
 
         header {
@@ -138,6 +148,11 @@
     </style>
 </head>
 <body>
+    <!-- Shared jeromevaldez.com top bar; styles live in the site repo's site-bar.css -->
+    <div class="site-bar">
+        <a href="/" class="site-bar-home" aria-label="Back to Home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M219.31,108.68l-80-80a16,16,0,0,0-22.62,0l-80,80A15.87,15.87,0,0,0,32,120v96a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V160h32v56a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V120A15.87,15.87,0,0,0,219.31,108.68ZM208,208H160V152a8,8,0,0,0-8-8H104a8,8,0,0,0-8,8v56H48V120l80-80,80,80Z"/></svg></a>
+        <span class="site-bar-title">Apple Health Project</span>
+    </div>
     <div class="container">
         <header>
             <h1>Apple Health Visualizations</h1>

@@ -28,7 +28,7 @@ python export_workouts.py
 3. Workout data collected from all sources (Apple Watch, Strava, Strong)
 4. Data filtered to last 6 months (cutoff: July 16, 2025)
 5. Interactive HTML visualization generated with two stacked charts
-6. Every export loads plotly.js from the Plotly CDN (`include_plotlyjs="cdn"`) and is post-processed by `html_utils.finalize_html()` to add a viewport meta, a `<title>`, and a back link to the project page. Keep both when adding a new visualization; without the viewport meta phones render the page at 980px
+6. Every export loads plotly.js from the Plotly CDN (`include_plotlyjs="cdn"`) and is post-processed by `html_utils.finalize_html()` to add a viewport meta, a `<title>`, a back link to the project page, and the jeromevaldez.com site bar (`add_site_bar`; styles load from `https://jeromevaldez.com/site-bar.css`). `visualize_heart_rate.py` builds its own page and calls `add_site_bar` directly. Keep both when adding a new visualization; without the viewport meta phones render the page at 980px
 
 ## Architecture
 
